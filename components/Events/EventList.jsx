@@ -1,16 +1,13 @@
 import React from 'react'
-import EventCard from './EventCard'
+import EventItem from './EventItem';
 import style from "./eventList.module.css"
 
-const EventList = ({ events }) => {
+const EventList = (props) => {
+    const { events } = props;
     return (
-        <div>
-            <ul className={style.list}>
-                {
-                    events.map((event, index) => <EventCard key={index} event={event} />)
-                }
-            </ul>
-        </div>
+        <ul className={style.list}>
+            {events.map((event, i) => <EventItem key={i} event={event}></EventItem>)}
+        </ul>
     )
 }
 
